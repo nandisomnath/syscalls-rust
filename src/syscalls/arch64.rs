@@ -209,8 +209,39 @@ unsafe extern "system" {
     pub unsafe fn fcntl(fd: c_uint, cmd: c_uint, arg: c_uint) -> c_long;
 
     pub unsafe fn flock(fd: c_uint, cmd: c_uint) -> c_int;
+
+    /// fsync() transfers ("flushes") all modified in-core data of (i.e.,
+    /// modified buffer cache pages for) the file referred to by the file
+    /// descriptor fd to the disk device (or other permanent storage
+    /// device) so that all changed information can be retrieved even if
+    /// the system crashes or is rebooted.  This includes writing through
+    /// or flushing a disk cache if present.  The call blocks until the
+    /// device reports that the transfer has completed.
+    /// #### RETURN VALUE
+    /// On success, these system calls return zero.  On error, -1 is
+    /// returned, and errno is set to indicate the error.
+    /// #### Link
+    /// Read the docs
+    /// [here](https://man7.org/linux/man-pages/man2/fsync.2.html)
     pub unsafe fn fsync(fd: c_uint) -> c_int;
+
+    /// fdatasync() is similar to fsync(), but does not flush modified
+    /// metadata unless that metadata is needed in order to allow a
+    /// subsequent data retrieval to be correctly handled.  For example,
+    /// changes to st_atime or st_mtime (respectively, time of last access
+    /// and time of last modification; see inode(7)) do not require
+    /// flushing because they are not necessary for a subsequent data read
+    /// to be handled correctly.  On the other hand, a change to the file
+    /// size (st_size, as made by say ftruncate(2)), would require a
+    /// metadata flush.
+    /// #### RETURN VALUE
+    /// On success, these system calls return zero.  On error, -1 is
+    /// returned, and errno is set to indicate the error.
+    /// #### Link
+    /// Read the docs
+    /// [here](https://man7.org/linux/man-pages/man2/fsync.2.html)
     pub unsafe fn fdatasync(fd: c_uint) -> c_int;
+    
     pub unsafe fn truncate(path: *const c_char, length: c_long) -> c_long;
     pub unsafe fn ftruncate(fd: c_uint, length: off_t) -> c_long;
     // pub unsafe fn getdents(unsigned int fd, struct linux_dirent *dirent, unsigned int count);
