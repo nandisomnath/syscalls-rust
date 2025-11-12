@@ -241,15 +241,70 @@ unsafe extern "system" {
     /// Read the docs
     /// [here](https://man7.org/linux/man-pages/man2/fsync.2.html)
     pub unsafe fn fdatasync(fd: c_uint) -> c_int;
-    
+
     pub unsafe fn truncate(path: *const c_char, length: c_long) -> c_long;
     pub unsafe fn ftruncate(fd: c_uint, length: off_t) -> c_long;
+
     // pub unsafe fn getdents(unsigned int fd, struct linux_dirent *dirent, unsigned int count);
+    
+    /// The getcwd() function copies an absolute pathname of the current
+    /// working directory to the array pointed to by buf, which is of
+    /// length size.
+    /// #### RETURN VALUE
+    /// On success, these functions return a pointer to a string
+    /// containing the pathname of the current working directory.  In the
+    /// case of getcwd() and getwd() this is the same value as buf.
+    ///
+    /// On failure, these functions return NULL, and errno is set to
+    /// indicate the error.  The contents of the array pointed to by buf
+    /// are undefined on error.
+    /// #### Link
+    /// Read the docs
+    /// [here](https://man7.org/linux/man-pages/man3/getcwd.3.html)
     pub unsafe fn getcwd(buf: *mut c_char, size: c_ulong) -> c_int;
+
+    /// chdir() changes the current working directory of the calling
+    /// process to the directory specified in path.
+    /// #### RETURN VALUE
+    /// On success, zero is returned.  On error, -1 is returned, and errno
+    /// is set to indicate the error.
+    /// #### Link
+    /// Read the docs
+    /// [here](https://man7.org/linux/man-pages/man2/chdir.2.html)
     pub unsafe fn chdir(filename: *const c_char) -> c_int;
+
+
+    /// fchdir() is identical to chdir(); the only difference is that the
+    /// directory is given as an open file descriptor.
+    /// #### RETURN VALUE
+    /// On success, zero is returned.  On error, -1 is returned, and errno
+    /// is set to indicate the error.
+    /// #### Link
+    /// Read the docs
+    /// [here](https://man7.org/linux/man-pages/man2/chdir.2.html)
     pub unsafe fn fchdir(fd: c_uint) -> c_int;
+
+    /// rename() renames a file, moving it between directories if
+    /// required.  Any other hard links to the file (as created using
+    /// link(2)) are unaffected.  Open file descriptors for oldpath are
+    /// also unaffected.
+    /// #### RETURN VALUE
+    /// On success, zero is returned.  On error, -1 is returned, and errno
+    /// is set to indicate the error.
+    /// #### Link
+    /// Read the docs
+    /// [here](https://man7.org/linux/man-pages/man2/renameat.2.html)
     pub unsafe fn rename(oldname: *const c_char, newname: *const c_char) -> c_uint;
+
+    /// mkdir() attempts to create a directory named path.
+    /// #### RETURN VALUE
+    /// mkdir() return zero on success.  On error, -1 is
+    /// returned and errno is set to indicate the error.
+    /// #### Link
+    /// Read the docs
+    /// [here](https://man7.org/linux/man-pages/man2/mkdir.2.html)
     pub unsafe fn mkdir(pathname: *const c_char, mode: umode_t) -> c_int;
+
     pub unsafe fn rmdir(pathname: *const c_char) -> c_int;
     pub unsafe fn creat(pathname: *const c_char, mode: umode_t) -> c_long;
     pub unsafe fn link(oldname: *const c_char, newname: *const c_char) -> c_int;
