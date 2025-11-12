@@ -195,7 +195,19 @@ unsafe extern "system" {
     // pub unsafe fn msgsnd		(SYSVIPC	int msqid, struct msgbuf *msgp, size_t msgsz, int msgflg);
     // pub unsafe fn msgrcv		(SYSVIPC	int msqid, struct msgbuf *msgp, size_t msgsz, long msgtyp, int msgflg);
     // pub unsafe fn msgctl		(SYSVIPC	int msqid, int cmd, struct msqid_ds *buf);
+    
+    /// fcntl() performs one of the operations described below on the open
+    ///    file descriptor fd.  The operation is determined by op.
+    /// #### RETURN VALUE
+    /// For a successful call, the return value depends on the operation.
+    /// On error, -1 is returned, and errno is set to indicate the error.
+    /// #### ERRORS
+    /// EACCES(13), EAGAIN(11), EBADF(9), EINVAL(22).
+    /// #### Link
+    /// Read the docs
+    /// [here](https://man7.org/linux/man-pages/man2/fcntl.2.html)
     pub unsafe fn fcntl(fd: c_uint, cmd: c_uint, arg: c_uint) -> c_long;
+
     pub unsafe fn flock(fd: c_uint, cmd: c_uint) -> c_int;
     pub unsafe fn fsync(fd: c_uint) -> c_int;
     pub unsafe fn fdatasync(fd: c_uint) -> c_int;
@@ -425,7 +437,11 @@ unsafe extern "system" {
 	// pub unsafe fn name_to_handle_at	(	FHANDLE	int dfd, const char *name, struct file_handle *handle, void *mnt_id, int flag);
 	// pub unsafe fn open_by_handle_at	(	FHANDLE	int mountdirfd, struct file_handle *handle, int flags);
 	// pub unsafe fn clock_adjtime	(		const clockid_t which_clock, struct __kernel_timex *utx);
-	// pub unsafe fn syncfs	(		int fd);
+	
+    /// syncfs() is like sync(), but synchronizes just the filesystem
+    ///    containing file referred to by the open file descriptor fd.
+    pub unsafe fn syncfs(fd: c_int);
+
     // pub unsafe fn sendmmsg	(	NET	int fd, struct mmsghdr *mmsg, unsigned int vlen, unsigned int flags);
 	// pub unsafe fn setns	(		int fd, int flags);
 	// pub unsafe fn getcpu	(		unsigned *cpup, unsigned *nodep, struct getcpu_cache *unused);
