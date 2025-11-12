@@ -5,7 +5,7 @@ readme = "README.md"
 description = "Linux syscalls for rust"
 keywords = ["linux", "syscalls", "c", "kernel"]
 repository = "https://github.com/nandisomnath/syscalls-rust.git"
-version = "0.2.9"
+version = "0.2.10"
 edition = "2024"
 categories = ["api-bindings", "os::linux-apis"]
 # documentation = "https://codeofsomnath.github.io/syscalls-rust?version=0.2.8"
