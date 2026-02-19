@@ -13,14 +13,5 @@ exclude = [
     "docs/**"
 ]
 
-[features]
-# Features are defined for different kernels
-# if any kernel I have missed then raise a issue and tell me about it
-default = ["linux"]
-linux = [] # For linux system
-windows = [] # For windows system
-bsd = [] # For bsd system
-macos = [] # For macos system
-
 
 [dependencies]

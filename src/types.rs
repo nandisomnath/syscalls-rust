@@ -1,3 +1,3 @@
 
-#[cfg(feature = "linux")]
+#[cfg(target_os = "linux")]
 pub mod linux;

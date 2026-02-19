@@ -1,5 +1,5 @@
 #![allow(non_camel_case_types)]
-#![cfg(feature = "linux")]
+#![cfg(target_os = "linux")]
 
 use std::ffi::{c_char, c_int, c_long, c_short, c_uchar, c_uint, c_ulong, c_ushort};
 

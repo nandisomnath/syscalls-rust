@@ -3,8 +3,8 @@
 
 
 /// This module supports all the 64 bit arch syscalls
-#[cfg(feature = "linux")]
-pub mod linux; // x86 64 bit, x86-64 abi
+#[cfg(target_os = "linux")]
+pub mod linux; // for linux
 
 
 

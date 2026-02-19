@@ -1,4 +1,4 @@
-#![cfg(feature = "linux")]
+#![cfg(target_os = "linux")]
 
 use std::ffi::*;
 
