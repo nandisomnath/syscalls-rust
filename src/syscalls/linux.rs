@@ -1,10 +1,8 @@
 #![cfg(feature = "linux")]
 
 use std::ffi::*;
-use crate::types::*;
 
-
-
+use crate::types::linux::*;
 
 
 unsafe extern "system" {
