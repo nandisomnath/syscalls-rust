@@ -14,13 +14,13 @@ exclude = [
 ]
 
 [features]
-# This features are defined for different architecture.
-# if any arch I have missed then raise a issue and tell me about it
-default = ["arch64"]
-arch32 = [] # x86 64 bit, x32 abi
-arch64 = [] # x86 64 bit, x86-64 abi
-arm64 = [] # Arm 64 bit, Arch 64 bit abi
-arm32 = [] # Arm 64 bit, Arch 32 bit abi
+# Features are defined for different kernels
+# if any kernel I have missed then raise a issue and tell me about it
+default = ["linux"]
+linux = [] # For linux system
+windows = [] # For windows system
+bsd = [] # For bsd system
+macos = [] # For macos system
 
 
 [dependencies]

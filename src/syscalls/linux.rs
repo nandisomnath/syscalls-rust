@@ -1,4 +1,4 @@
-#![cfg(feature = "arch64")]
+#![cfg(feature = "linux")]
 
 use std::ffi::*;
 use crate::types::*;

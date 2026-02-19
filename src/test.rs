@@ -1,6 +1,6 @@
 #![cfg(test)]
 
-use crate::syscalls::arch64::*;
+use crate::syscalls::linux::*;
 
 #[test]
 pub fn test_fork() {
